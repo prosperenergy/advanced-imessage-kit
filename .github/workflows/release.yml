@@ -40,6 +40,10 @@ jobs:
     permissions:
       contents: write
       pull-requests: read
+      # The reusable workflow's github-packages-publish job requests this.
+      # GitHub rejects the caller at startup unless it is granted, even when
+      # that job's if condition skips the publish.
+      packages: write
     with:
       service-name: advanced-imessage-kit
       build-command: "bun run build"
